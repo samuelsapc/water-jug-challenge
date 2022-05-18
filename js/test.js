@@ -5,10 +5,7 @@ function ej1(){
     let d3 = parseInt(prompt("Enter value to  z" ));
     let b1 = 0;
     let b2 = 0;
-    if(d1 <= d3 && d2 <= d3){
-        document.getElementById("container").innerHTML="there's no solution!";
-        return;
-    }
+   
 
     let html = `<table>
     <thead>
@@ -33,11 +30,20 @@ function ej1(){
                 html += `<tr><td>`+b1+`</td>
                 <td>`+b2+`</td>
                 <td>Transfer bucket x to bucket y Solved</td></tr>`;
+            }else if(b2 > d3){
+                b2 = d2;
+                html += `<tr><td>`+b1+`</td>
+                <td>`+b2+`</td>
+                <td>Transfer bucket x to bucket y Solved</td></tr>`;
             }else{
                 html += `<tr><td>`+b1+`</td>
                 <td>`+b2+`</td>
                 <td>Transfer bucket x to bucket y</td></tr>`;
             }   
+        }
+        if(b2 > d3){
+            document.getElementById("container").innerHTML="there's no solution!";
+            return;
         }
         html+=`</tbody></table> `;
         document.getElementById("container").innerHTML=html;
@@ -54,11 +60,20 @@ function ej1(){
                 html += `<tr><td>`+b1+`</td>
                 <td>`+b2+`</td>
                 <td>Transfer bucket y to bucket x Solved</td></tr>`;
+            }else if(b1 > d3){
+                b1 = d1;
+                html += `<tr><td>`+b1+`</td>
+                <td>`+b2+`</td>
+                <td>Transfer bucket y to bucket x Solved</td></tr>`;
             }else{
                 html += `<tr><td>`+b1+`</td>
                 <td>`+b2+`</td>
                 <td>Transfer bucket y to bucket x</td></tr>`;
             }
+        }
+        if(b1 > d3){
+            document.getElementById("container").innerHTML="there's no solution!";
+            return;
         }
         html+=`</tbody></table> `;
         document.getElementById("container").innerHTML=html;
